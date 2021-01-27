@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // ERR01 - General Errors
+    <string name="ERR01001">General Error Code</string>
+    <string name="ERR01002">Record not found on this ID</string>
+    <string name="ERR01003">Invalid parameter Or parameters</string>
+    <string name="ERR01004">User not found</string>
+    <string name="ERR01005">Login failed</string>
+    <string name="ERR01006">Main group can\'t duplicate or delete</string>
+    <string name="ERR01007">Not owner of the record</string>
+    <string name="ERR01008">The record could not add to DB</string>
+    <string name="ERR01009">You cannot get all chat room records without a administrator role</string>
+    <string name="ERR01010">User could not update</string>
+    // --------------------------------------------------
+
+    // ERR02 - Identity Errors
+    <string name="ERR02001">Duplicate Email</string>
+    <string name="ERR02002">Duplicate UserName</string>
+    <string name="ERR02003">Invalid Email</string>
+    <string name="ERR02004">Duplicate Role Name</string>
+    <string name="ERR02005">Invalid Role Name</string>
+    <string name="ERR02006">Invalid Token</string>
+    <string name="ERR02007">Invalid UserName</string>
+    <string name="ERR02008">Login Already Associated</string>
+    <string name="ERR02009">Password Mismatch</string>
+    <string name="ERR02010">Password Requires Digit</string>
+    <string name="ERR02011">Password Requires Lower Character</string>
+    <string name="ERR02012">Password Requires Non Alphanumeric Character</string>
+    <string name="ERR02013">Password Requires Unique Characters</string>
+    <string name="ERR02014">Password Requires Upper Characters</string>
+    <string name="ERR02015">Password Too Short</string>
+    <string name="ERR02016">User Already Has Password</string>
+    <string name="ERR02017">User Already In Role</string>
+    <string name="ERR02018">User Lockout Not Enabled</string>
+    <string name="ERR02019">Recovery Code Redemption Failed</string>
+    <string name="ERR02020">Concurrency Failure</string>
+    <string name="ERR02021">Default Identity Error</string>
+    <string name="ERR02022">User Not In Role</string>
+    <string name="ERR02023">User don\'t have valid refresh token</string>
+    <string name="ERR02024">Refresh tokens don\'t match</string>
+    <string name="ERR02025">User already have a valid token</string>
+    <string name="ERR02026">The token is not matching with active/expired tokens</string>
+    //--------------------------------------------------------------------------
+
+    // ERR03 - ModelState Errors
+    <string name="ERR03001">Field Required</string>
+    <string name="ERR03002">Min Length Error</string>
+    <string name="ERR03003">Max Length Error</string>
+    <string name="ERR03004">Passwords Is Not Match</string>
+    //---------------------------------------------------------------------------
+</resources>

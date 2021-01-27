@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kagan.chatapp.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_passwordRequestFragment"
+            app:destination="@id/passwordRequestFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.kagan.chatapp.ui.fragments.RegisterFragment"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordRequestFragment"
+        android:name="com.kagan.chatapp.ui.fragments.PasswordRequestFragment"
+        android:label="PasswordRequestFragment">
+        <action
+            android:id="@+id/action_passwordRequestFragment_to_passwordChangeFragment"
+            app:destination="@id/passwordChangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordChangeFragment"
+        android:name="com.kagan.chatapp.ui.fragments.PasswordChangeFragment"
+        android:label="PasswordChangeFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kagan.chatapp.ui.fragments.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_chatRoomsFragment"
+            app:destination="@id/chatRoomsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_usersListFragment"
+            app:destination="@id/usersListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatRoomsFragment"
+        android:name="com.kagan.chatapp.ui.fragments.ChatRoomsFragment"
+        android:label="fragment_chat_rooms"
+        tools:layout="@layout/fragment_chat_rooms">
+        <action
+            android:id="@+id/action_chatRoomsFragment_to_createRoomFragment"
+            app:destination="@id/createRoomFragment" />
+        <action
+            android:id="@+id/action_chatRoomsFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRoomFragment"
+        android:name="com.kagan.chatapp.ui.fragments.CreateRoomFragment"
+        android:label="CreateRoomFragment" />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.kagan.chatapp.ui.fragments.ChatRoomFragment"
+        android:label="ChatRoomFragment">
+        <action
+            android:id="@+id/action_chatRoomFragment_to_editRoomFragment"
+            app:destination="@id/editRoomFragment" />
+        <argument
+            android:name="chatRoomId"
+            app:argType="com.kagan.chatapp.models.safeargs.ChatRoomId" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRoomFragment"
+        android:name="com.kagan.chatapp.ui.fragments.EditRoomFragment"
+        android:label="EditRoomFragment">
+        <argument
+            android:name="chatRoomId"
+            app:argType="com.kagan.chatapp.models.safeargs.ChatRoomId" />
+        <action
+            android:id="@+id/action_editRoomFragment_to_chatRoomsFragment"
+            app:destination="@id/chatRoomsFragment"
+            app:popUpTo="@+id/chatRoomsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersListFragment"
+        android:name="com.kagan.chatapp.ui.fragments.UsersListFragment"
+        android:label="UsersListFragment" />
+</navigation>
