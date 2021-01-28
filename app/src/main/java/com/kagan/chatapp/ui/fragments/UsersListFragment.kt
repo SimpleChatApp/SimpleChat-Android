@@ -72,6 +72,7 @@ class UsersListFragment : Fragment(R.layout.fragment_users_list), OnClickListene
             accessToken?.let {
                 auth = it
                 databaseViewModel.getUsers()
+                usersViewModel.getUsers(auth)
             }
         })
 
