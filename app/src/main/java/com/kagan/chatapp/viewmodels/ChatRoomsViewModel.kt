@@ -57,49 +57,50 @@ constructor(
     private val _chatRoomMessage = MutableLiveData<States<List<MessageVM>>>()
     val chatRoomMessage: LiveData<States<List<MessageVM>>> = _chatRoomMessage
 
-    fun getChatRooms(auth: String) {
-        _state.value = States.Loading
-        val call = chatRoomsRepository.getChatRooms(auth)
+    fun getChatRooms(auth: String): States<*> {
+        _state.value = chatRoomsRepository.showProgress()
+        return chatRoomsRepository.getChatRooms(auth)
 
-        call.enqueue(object : Callback<JsonElement> {
-            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-                when (response.code()) {
-                    200 -> {
-                        val chatRoomsType = object : TypeToken<List<ChatRoomVM>>() {}.type
-                        _state.value = States.Success(
-                            parseJsonToVM<List<ChatRoomVM>>(
-                                response.body().toString(),
-                                chatRoomsType
-                            )
-                        )
-                    }
-                    400 -> {
-                        _state.value = States.Error(
-                            parseJsonToVM(
-                                response.errorBody()?.string()!!,
-                                APIResultVM::class.java
-                            )
-                        )
-                    }
-                    404 -> {
-                        _state.value = States.Error(
-                            parseJsonToVM(
-                                response.errorBody()?.string()!!,
-                                APIResultVM::class.java
-                            )
-                        )
-                    }
-                    500 -> {
-                        Log.d(TAG, "onResponse: 500")
-                        //todo something happened
-                    }
-                }
-            }
 
-            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+//        call.enqueue(object : Callback<JsonElement> {
+//            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
+//                when (response.code()) {
+//                    200 -> {
+//                        val chatRoomsType = object : TypeToken<List<ChatRoomVM>>() {}.type
+//                        _state.value = States.Success(
+//                            parseJsonToVM<List<ChatRoomVM>>(
+//                                response.body().toString(),
+//                                chatRoomsType
+//                            )
+//                        )
+//                    }
+//                    400 -> {
+//                        _state.value = States.Error(
+//                            parseJsonToVM(
+//                                response.errorBody()?.string()!!,
+//                                APIResultVM::class.java
+//                            )
+//                        )
+//                    }
+//                    404 -> {
+//                        _state.value = States.Error(
+//                            parseJsonToVM(
+//                                response.errorBody()?.string()!!,
+//                                APIResultVM::class.java
+//                            )
+//                        )
+//                    }
+//                    500 -> {
+//                        Log.d(TAG, "onResponse: 500")
+//                        //todo something happened
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
+//                TODO("Not yet implemented")
+//            }
+//        })
     }
 
     fun postChatRooms(auth: String, chatRooms: AddVM) {
